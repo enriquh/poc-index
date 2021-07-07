@@ -13,8 +13,6 @@ import {
   Image,
 } from "@chakra-ui/react";
 import { pocDataObject } from "../types";
-const urlPrefix =
-  "https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/template?templateURL=+";
 
 interface ModalProps {
   onClose: () => void;
@@ -44,7 +42,7 @@ export const MainModal: React.FC<ModalProps> = (props) => {
               View in Designer
             </Button> */}
             {data?.templateURL && (
-              <Link href={`${urlPrefix}${data?.templateURL}`} isExternal={true}>
+              <Link href={`${data?.provider}${data?.templateURL}`} isExternal={true}>
                 <Button mt={5} colorScheme="green" onClick={onClose}>
                   Launch Template
                 </Button>

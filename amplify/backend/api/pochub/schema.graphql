@@ -6,5 +6,7 @@ type Poc @model {
   diagram: String
   templateURL: String
   estimatedCosts: Float
+  rating: Int
+  provider: String
   tags: [String]
 }

@@ -15,6 +15,8 @@ export const createPoc = /* GraphQL */ `
       diagram
       templateURL
       estimatedCosts
+      rating
+      provider
       tags
       createdAt
       updatedAt
@@ -34,6 +36,8 @@ export const updatePoc = /* GraphQL */ `
       diagram
       templateURL
       estimatedCosts
+      rating
+      provider
       tags
       createdAt
       updatedAt
@@ -53,6 +57,8 @@ export const deletePoc = /* GraphQL */ `
       diagram
       templateURL
       estimatedCosts
+      rating
+      provider
       tags
       createdAt
       updatedAt

@@ -20,7 +20,7 @@ export const ResultCard: React.FC<ResultCardProps> = (props) => {
       width={[300, 400, 800, 800]}
     >
       <Box>{data.name}</Box>
-      <Box fontSize="sm" mb={2}>
+      <Box fontSize="sm" mb={3}>
         {data.description}
       </Box>
       <Box textAlign="right" fontSize="sm">

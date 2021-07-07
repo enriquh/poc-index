@@ -45,6 +45,7 @@ export const Search = () => {
   const { toggleColorMode } = useColorMode();
   const text = useColorModeValue("dark", "light");
   const SwitchIcon = useColorModeValue(FaMoon, FaSun);
+  const filteredData = storedPOCs.filter((d) => hasDataMatch(value, d));
 
   useEffect(() => {
     fetchPocs();
@@ -102,20 +103,18 @@ export const Search = () => {
             />
             <Text>
               <Code fontSize="xl">
-                Showing results {storedPOCs.length} of {storedPOCs.length}...
+                Showing results {filteredData.length} of {storedPOCs.length}...
               </Code>
             </Text>
-            {storedPOCs
-              .filter((d) => hasDataMatch(value, d))
-              .map((d: pocDataObject) => {
-                return (
-                  <ResultCard
-                    key={d.id}
-                    data={d}
-                    onClick={() => setSelectedPOC(d)}
-                  />
-                );
-              })}
+            {filteredData.map((d: pocDataObject) => {
+              return (
+                <ResultCard
+                  key={d.id}
+                  data={d}
+                  onClick={() => setSelectedPOC(d)}
+                />
+              );
+            })}
           </VStack>
         </Grid>
       </Box>

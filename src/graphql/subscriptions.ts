@@ -10,6 +10,8 @@ export const onCreatePoc = /* GraphQL */ `
       description
       url
       diagram
+      templateURL
+      estimatedCosts
       tags
       createdAt
       updatedAt
@@ -24,6 +26,8 @@ export const onUpdatePoc = /* GraphQL */ `
       description
       url
       diagram
+      templateURL
+      estimatedCosts
       tags
       createdAt
       updatedAt
@@ -38,6 +42,8 @@ export const onDeletePoc = /* GraphQL */ `
       description
       url
       diagram
+      templateURL
+      estimatedCosts
       tags
       createdAt
       updatedAt

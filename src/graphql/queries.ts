@@ -10,6 +10,8 @@ export const getPoc = /* GraphQL */ `
       description
       url
       diagram
+      templateURL
+      estimatedCosts
       tags
       createdAt
       updatedAt
@@ -29,6 +31,8 @@ export const listPocs = /* GraphQL */ `
         description
         url
         diagram
+        templateURL
+        estimatedCosts
         tags
         createdAt
         updatedAt

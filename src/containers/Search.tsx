@@ -19,8 +19,12 @@ import { FaMoon, FaSun } from "react-icons/fa";
 import { pocDataObject } from "../types";
 import { API, graphqlOperation } from "aws-amplify";
 import { listPocs } from "../graphql/queries";
+import { GraphQLResult } from '@aws-amplify/api-graphql';
+import { ListPocsQuery } from "../API";
+import { convertTypeAcquisitionFromJson } from "typescript";
 
-const pocData: pocDataObject[] = require("../data/poc-data.json");
+// const pocData: pocDataObject[] = require("../data/poc-data.json");
+const pocData: pocDataObject[] = null
 type changeType = (event: React.ChangeEvent<HTMLInputElement>) => void;
 
 const hasDataMatch = (search: string, data: pocDataObject) => {
@@ -36,25 +40,35 @@ export const Search = () => {
   const [selectedPOC, setSelectedPOC] = React.useState<pocDataObject | null>(
     null
   );
+  
+  const [storedPOCs, setStoredPOCs] = React.useState(
+    null
+  );
+
   const handleChange: changeType = (event) => setValue(event.target.value);
   const { toggleColorMode } = useColorMode();
   const text = useColorModeValue("dark", "light");
   const SwitchIcon = useColorModeValue(FaMoon, FaSun);
-  const filteredData = pocData.filter((d) => hasDataMatch(value, d));
+  //const filteredData = pocData.filter((d) => hasDataMatch(value, d));
 
   useEffect(() => {
     fetchPocs();
   }, []);
 
+  let formattedList
   async function fetchPocs() {
     try {
-      const pocData = await API.graphql(graphqlOperation(listPocs));
-      console.log("test: ", pocData);
+      
+      const pocData = ( 
+        await API.graphql(graphqlOperation(listPocs))
+      ) as GraphQLResult<ListPocsQuery> 
+      formattedList = pocData.data?.listPocs?.items
+      setStoredPOCs(formattedList)      
     } catch (err) {
       console.log("error fetching pocs");
-    }
+    }    
   }
-
+  console.log("Render ",storedPOCs)
   return (
     <div>
       <MainModal
@@ -96,11 +110,11 @@ export const Search = () => {
             />
             <Text>
               <Code fontSize="xl">
-                Showing results {filteredData.length} of {pocData.length}...
+                Showing results {storedPOCs?.length} of {pocData?.length}...
               </Code>
             </Text>
-            {filteredData.map((d) => {
-              return (
+            {storedPOCs?.map((d: pocDataObject) => {
+              return (                
                 <ResultCard
                   key={d.id}
                   data={d}

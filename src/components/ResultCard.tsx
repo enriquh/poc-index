@@ -19,8 +19,10 @@ export const ResultCard: React.FC<ResultCardProps> = (props) => {
       onClick={onClick}
       width={[300, 400, 800, 800]}
     >
-      <Box>{data.title}</Box>
-      <Box fontSize="sm">{data.description}</Box>
+      <Box>{data.name}</Box>
+      <Box fontSize="sm" mb={2}>
+        {data.description}
+      </Box>
       <Box textAlign="right" fontSize="sm">
         {data.tags?.map((d, i) => {
           return (

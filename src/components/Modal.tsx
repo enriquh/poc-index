@@ -13,6 +13,8 @@ import {
   Image,
 } from "@chakra-ui/react";
 import { pocDataObject } from "../types";
+const urlPrefix =
+  "https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/template?templateURL=+";
 
 interface ModalProps {
   onClose: () => void;
@@ -22,6 +24,7 @@ interface ModalProps {
 
 export const MainModal: React.FC<ModalProps> = (props) => {
   const { onClose, isOpen, data } = props;
+
   return (
     <Modal
       size="xl"
@@ -32,7 +35,7 @@ export const MainModal: React.FC<ModalProps> = (props) => {
     >
       <ModalOverlay />
       <ModalContent maxW="50rem">
-        <ModalHeader>{data?.title}</ModalHeader>
+        <ModalHeader>{data?.name}</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
           <Box>{data?.description}</Box>
@@ -40,15 +43,13 @@ export const MainModal: React.FC<ModalProps> = (props) => {
             {/* <Button ml={5} mt={10} colorScheme="green" onClick={onClose}>
               View in Designer
             </Button> */}
-            {data?.launchUrl && (
-              <Link href={data?.launchUrl} isExternal={true}>
-                <Button mt={5} colorScheme="green" onClick={onClose}>
-                  Launch Template
-                </Button>
-              </Link>
-            )}
+            <a href={`${urlPrefix}${data?.templateUrl}`} target="_blank">
+              <Button mt={5} colorScheme="green" onClick={onClose}>
+                Launch Template
+              </Button>
+            </a>
           </Box>
-          {data?.imageUrl && <Image src={data.imageUrl} />}
+          {data?.diagram && <Image src={data.diagram} />}
         </ModalBody>
         <ModalFooter>
           <Button onClick={onClose}>Close</Button>

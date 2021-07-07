@@ -16,6 +16,6 @@ export interface pocDataObject {
   provider?: string;
   rating?: number;
   url: string;
-  costs: number;
+  estimatedCosts: number;
   tags: string[];
 }

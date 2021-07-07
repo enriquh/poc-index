@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Box, Tag } from "@chakra-ui/react";
 import { pocDataObject } from "../types";
+import { StarIcons } from "./StarIconPanel";
 
 interface ResultCardProps {
   data: pocDataObject;
@@ -20,6 +21,9 @@ export const ResultCard: React.FC<ResultCardProps> = (props) => {
       width={[300, 400, 800, 800]}
     >
       <Box>{data.name}</Box>
+      <Box textAlign="right">
+        <StarIcons rating={data.rating} />
+      </Box>
       <Box fontSize="sm" mb={3}>
         {data.description}
       </Box>

@@ -4,10 +4,11 @@ import { pocDataObject } from "../types";
 
 interface ResultCardProps {
   data: pocDataObject;
+  onClick: () => void;
 }
 
 export const ResultCard: React.FC<ResultCardProps> = (props) => {
-  const { data } = props;
+  const { data, onClick } = props;
   return (
     <Box
       textAlign="left"
@@ -15,7 +16,7 @@ export const ResultCard: React.FC<ResultCardProps> = (props) => {
       borderWidth="1px"
       borderRadius="lg"
       cursor="pointer"
-      onClick={() => console.log("test")}
+      onClick={onClick}
       width={[300, 400, 800, 800]}
     >
       <Box>{data.title}</Box>

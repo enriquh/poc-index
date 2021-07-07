@@ -11,11 +11,11 @@ import {
   Input,
 } from "@chakra-ui/react";
 import { ResultCard } from "../components/ResultCard";
+import { MainModal } from "../components/Modal";
 import { FaMoon, FaSun } from "react-icons/fa";
 import { pocDataObject } from "../types";
-import Amplify, { API, graphqlOperation } from 'aws-amplify';
-import { listPocs } from '../graphql/queries';
-
+import { API, graphqlOperation } from "aws-amplify";
+import { listPocs } from "../graphql/queries";
 
 const pocData: pocDataObject[] = require("../data/poc-data.json");
 type changeType = (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -30,28 +30,35 @@ const hasDataMatch = (search: string, data: pocDataObject) => {
 
 export const Search = () => {
   const [value, setValue] = React.useState("");
+  const [selectedPOC, setSelectedPOC] = React.useState<pocDataObject | null>(
+    null
+  );
   const handleChange: changeType = (event) => setValue(event.target.value);
   const { toggleColorMode } = useColorMode();
   const text = useColorModeValue("dark", "light");
   const SwitchIcon = useColorModeValue(FaMoon, FaSun);
   const filteredData = pocData.filter((d) => hasDataMatch(value, d));
-  
+
   useEffect(() => {
-    fetchPocs()
-  }, [])
-  
+    fetchPocs();
+  }, []);
+
   async function fetchPocs() {
     try {
-      const pocData = await API.graphql(graphqlOperation(listPocs))
+      const pocData = await API.graphql(graphqlOperation(listPocs));
       console.log("test: ", pocData);
-
-    } catch (err) { 
-      console.log('error fetching pocs')
+    } catch (err) {
+      console.log("error fetching pocs");
     }
   }
 
   return (
     <div>
+      <MainModal
+        onClose={() => setSelectedPOC(null)}
+        isOpen={selectedPOC !== null}
+        data={selectedPOC}
+      />
       <Box textAlign="center" fontSize="xl">
         <Grid p={3}>
           <IconButton
@@ -80,7 +87,13 @@ export const Search = () => {
               </Code>
             </Text>
             {filteredData.map((d) => {
-              return <ResultCard key={d.id} data={d} />;
+              return (
+                <ResultCard
+                  key={d.id}
+                  data={d}
+                  onClick={() => setSelectedPOC(d)}
+                />
+              );
             })}
           </VStack>
         </Grid>

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "title": "my POC title",
+    "description": "my POC description",
+    "createdDate": "2021-07-05T17:59:28Z",
+    "updatedDate": "2021-07-05T17:59:28Z",
+    "tags": ["serverless", "greenlight"]
+  },
+  {
+    "id": "2",
+    "title": "my POC title 2",
+    "description": "my POC description",
+    "createdDate": "2021-07-05T17:59:28Z",
+    "updatedDate": "2021-07-05T17:59:28Z",
+    "tags": ["serverless", "polly"]
+  },
+  {
+    "id": "3",
+    "title": "my POC title 3",
+    "description": "my POC description",
+    "createdDate": "2021-07-05T17:59:28Z",
+    "updatedDate": "2021-07-05T17:59:28Z",
+    "tags": ["serverless", "lex", "kendra"]
+  }
+]

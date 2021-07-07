@@ -1,0 +1,8 @@
+type Poc @model {
+  id: ID!
+  name: String!
+  description: String
+  url: String
+  diagram: String
+  tags: [String]
+}

@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-pochub-dev-152216-authRole",
+      "UnauthRoleArn": "arn:aws:iam::208442788671:role/amplify-pochub-dev-152216-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::208442788671:role/amplify-pochub-dev-152216-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-pochub-dev-152216-deployment",
+      "UnauthRoleName": "amplify-pochub-dev-152216-unauthRole",
+      "StackName": "amplify-pochub-dev-152216",
+      "StackId": "arn:aws:cloudformation:eu-west-1:208442788671:stack/amplify-pochub-dev-152216/f3ec18f0-de6d-11eb-b52e-06a4ce769f83",
+      "AmplifyAppId": "d3702sa6s0vjux"
+    }
+  }
+}

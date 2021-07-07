@@ -4,5 +4,7 @@ type Poc @model {
   description: String
   url: String
   diagram: String
+  templateURL: String
+  estimatedCosts: Float
   tags: [String]
 }

@@ -43,11 +43,13 @@ export const MainModal: React.FC<ModalProps> = (props) => {
             {/* <Button ml={5} mt={10} colorScheme="green" onClick={onClose}>
               View in Designer
             </Button> */}
-            <a href={`${urlPrefix}${data?.templateUrl}`} target="_blank">
-              <Button mt={5} colorScheme="green" onClick={onClose}>
-                Launch Template
-              </Button>
-            </a>
+            {data?.templateURL && (
+              <Link href={`${urlPrefix}${data?.templateURL}`} isExternal={true}>
+                <Button mt={5} colorScheme="green" onClick={onClose}>
+                  Launch Template
+                </Button>
+              </Link>
+            )}
           </Box>
           {data?.diagram && <Image src={data.diagram} />}
         </ModalBody>

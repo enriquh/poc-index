@@ -23,12 +23,11 @@ import { GraphQLResult } from "@aws-amplify/api-graphql";
 import { ListPocsQuery } from "../API";
 
 //const pocData: pocDataObject[] = require("../data/poc-data.json");
-//const pocData: pocDataObject[] = null;
 type changeType = (event: React.ChangeEvent<HTMLInputElement>) => void;
 
 const hasDataMatch = (search: string, data: pocDataObject) => {
   return (
-    data.title.includes(search) ||
+    data.name.includes(search) ||
     data.description.includes(search) ||
     data.tags.includes(search)
   );
@@ -46,7 +45,6 @@ export const Search = () => {
   const { toggleColorMode } = useColorMode();
   const text = useColorModeValue("dark", "light");
   const SwitchIcon = useColorModeValue(FaMoon, FaSun);
-  // const filteredData = pocData.filter((d) => hasDataMatch(value, d));
 
   useEffect(() => {
     fetchPocs();
@@ -107,15 +105,17 @@ export const Search = () => {
                 Showing results {storedPOCs.length} of {storedPOCs.length}...
               </Code>
             </Text>
-            {storedPOCs.map((d: pocDataObject) => {
-              return (
-                <ResultCard
-                  key={d.id}
-                  data={d}
-                  onClick={() => setSelectedPOC(d)}
-                />
-              );
-            })}
+            {storedPOCs
+              .filter((d) => hasDataMatch(value, d))
+              .map((d: pocDataObject) => {
+                return (
+                  <ResultCard
+                    key={d.id}
+                    data={d}
+                    onClick={() => setSelectedPOC(d)}
+                  />
+                );
+              })}
           </VStack>
         </Grid>
       </Box>

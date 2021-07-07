@@ -12,7 +12,7 @@ export interface pocDataObject {
   name: string;
   description: string;
   diagram?: string;
-  templateUrl?: string;
+  templateURL?: string;
   url: string;
   costs: number;
   tags: string[];

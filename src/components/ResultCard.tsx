@@ -22,7 +22,7 @@ export const ResultCard: React.FC<ResultCardProps> = (props) => {
       <Box>{data.title}</Box>
       <Box fontSize="sm">{data.description}</Box>
       <Box textAlign="right" fontSize="sm">
-        {data.tags.map((d, i) => {
+        {data.tags?.map((d, i) => {
           return (
             <Tag key={i} ml={2}>
               {d}

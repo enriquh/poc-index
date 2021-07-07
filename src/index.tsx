@@ -9,7 +9,7 @@ Amplify.configure(awsExports);
 
 ReactDOM.render(
   <React.StrictMode>
-    <ColorModeScript />
+    <ColorModeScript initialColorMode="dark" />
     <App />
   </React.StrictMode>,
   document.getElementById("root")

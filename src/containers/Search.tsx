@@ -9,6 +9,9 @@ import {
   useColorMode,
   IconButton,
   Input,
+  Tag,
+  HStack,
+  Avatar,
 } from "@chakra-ui/react";
 import { ResultCard } from "../components/ResultCard";
 import { MainModal } from "../components/Modal";
@@ -61,19 +64,29 @@ export const Search = () => {
       />
       <Box textAlign="center" fontSize="xl">
         <Grid p={3}>
-          <IconButton
-            size="md"
-            mb={5}
-            fontSize="lg"
-            variant="ghost"
-            color="current"
-            marginLeft="2"
-            onClick={toggleColorMode}
-            icon={<SwitchIcon />}
-            aria-label={`Switch to ${text} mode`}
-            justifySelf="flex-end"
-          />
-
+          <HStack justifyContent="space-between" mb={5}>
+            <Tag ml="2" size="lg">
+              <Avatar
+                src="https://bit.ly/sage-adebayo"
+                size="xs"
+                name="Segun Adebayo"
+                ml={-1}
+                mr={2}
+              />
+              POC Hub
+            </Tag>
+            <IconButton
+              size="md"
+              fontSize="lg"
+              variant="ghost"
+              color="current"
+              ml="2"
+              onClick={toggleColorMode}
+              icon={<SwitchIcon />}
+              aria-label={`Switch to ${text} mode`}
+              justifySelf="flex-end"
+            />
+          </HStack>
           <VStack spacing={8}>
             <Input
               placeholder="Search POC"

@@ -11,22 +11,22 @@
   },
   {
     "id": "2",
-    "title": "Serverless bot framework 2",
-    "description": "This solution helps you implement sophisticated conversational chatbots and develop engaging and lifelike experiences for your customers. To deploy this solution using the available AWS CloudFormation template, select Deploy with AWS.",
+    "title": "Serverless Web App Real-Time Data Broadcasting",
+    "description": "Create a movie voting application using AWS AppSync, AWS Lambda, AWS Step Functions, and Amazon DynamoDB. Leverage back-end and client facing real-time broadcasting with managed GraphQL subscriptions over WebSockets.",
     "createdDate": "2021-07-05T17:59:28Z",
     "updatedDate": "2021-07-05T17:59:28Z",
-    "imageUrl": "https://cp-prod-assets.s3.eu-west-2.amazonaws.com/bot-architecture.png",
+    "imageUrl": "https://cp-prod-assets.s3.eu-west-2.amazonaws.com/sls-app.png",
     "launchUrl": "https://docs.aws.amazon.com/solutions/latest/serverless-bot-framework/overview.html?campaign=sol-rad-cta&trk=https//d1.awsstatic.com/architecture-diagrams/ArchitectureDiagrams/serverless-bot-framework-sol.pdf",
-    "tags": ["serverless", "polly"]
+    "tags": ["serverless", "dynamodb", "step functions"]
   },
   {
     "id": "3",
-    "title": "Serverless bot framework 3",
-    "description": "This solution helps you implement sophisticated conversational chatbots and develop engaging and lifelike experiences for your customers. To deploy this solution using the available AWS CloudFormation template, select Deploy with AWS.",
+    "title": "Serverless Notifications for games",
+    "description": "Create a serverless data flow to ingest, store, process, and perform push notifications to subscribers. Use this pipeline for flash offers, in-game event/promotion notifications, campaign specific notifications targeting segmented audience with efficiency tracking and processing, and storage of notifications data for further analysis. The services shown in this architecture are scalable and support processing large volumes of transactions simultaneously.",
     "createdDate": "2021-07-05T17:59:28Z",
     "updatedDate": "2021-07-05T17:59:28Z",
-    "imageUrl": "https://cp-prod-assets.s3.eu-west-2.amazonaws.com/bot-architecture.png",
+    "imageUrl": "https://cp-prod-assets.s3.eu-west-2.amazonaws.com/sls-notifications.png",
     "launchUrl": "https://docs.aws.amazon.com/solutions/latest/serverless-bot-framework/overview.html?campaign=sol-rad-cta&trk=https//d1.awsstatic.com/architecture-diagrams/ArchitectureDiagrams/serverless-bot-framework-sol.pdf",
-    "tags": ["serverless", "lex", "kendra"]
+    "tags": ["serverless", "translate", "cognito", "lambda"]
   }
 ]

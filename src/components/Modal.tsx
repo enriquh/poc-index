@@ -46,16 +46,20 @@ export const MainModal: React.FC<ModalProps> = (props) => {
             </Box>
           </HStack>
           <Box mb={5}>
-            {/* <Button ml={5} mt={10} colorScheme="green" onClick={onClose}>
-              View in Designer
-            </Button> */}
             {data?.templateURL && (
               <Link
                 href={`${data?.provider}${data?.templateURL}`}
                 isExternal={true}
               >
-                <Button mt={5} colorScheme="green" onClick={onClose}>
+                <Button mt={5} mr={3} colorScheme="green">
                   Launch Template
+                </Button>
+              </Link>
+            )}
+            {data?.url && (
+              <Link href={data?.url} isExternal={true}>
+                <Button mt={5} colorScheme="blue">
+                  Open Solution
                 </Button>
               </Link>
             )}
